@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import { site } from "../config/site";
+import image from "../assets/images/rose-room.jpg";
+---
+<BaseLayout title="Prenotazioni" description="Scopri come funziona la prenotazione nel concept dimostrativo Noctis. Nessuna richiesta viene inviata a un ristorante reale.">
+  <PageHero eyebrow="La tua serata" title="Prenota" intro="Un tavolo, il tempo giusto, tutto il resto può aspettare." image={image} imageAlt="Tavolo raccolto con una rosa" position="center" />
+  <section class="booking-layout container">
+    <div class="booking-intro"><p class="eyebrow">Un posto per te</p><h2>La serata<br /><em>inizia qui.</em></h2><p>Questa pagina mostra l'esperienza di prenotazione prevista per il template. Noctis è un ristorante immaginario: il modulo non invia dati e non conferma tavoli reali.</p><div class="booking-rule"><span>01</span><p>Scegli data, orario e numero di persone.</p></div><div class="booking-rule"><span>02</span><p>Guarda il riepilogo del percorso dimostrativo.</p></div></div>
+    {site.reservationMode === "demo" ? <form class="booking-form" data-booking-form>
+      <p class="eyebrow">Prenotazione dimostrativa</p>
+      <h3>Il tuo tavolo</h3>
+      <div class="form-grid">
+        <label>Data <input name="date" type="date" required /></label>
+        <label>Persone <select name="guests" required><option value="">Seleziona</option><option>1 persona</option><option>2 persone</option><option>3 persone</option><option>4 persone</option><option>5 persone</option><option>6 persone</option></select></label>
+        <label>Orario <select name="time" required><option value="">Seleziona</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option></select></label>
+        <label>Occasione <select name="occasion"><option value="">Facoltativo</option><option>Cena</option><option>Anniversario</option><option>Compleanno</option><option>Un'occasione speciale</option></select></label>
+      </div>
+      <button class="button-primary booking-submit" type="submit">Mostra il riepilogo <span aria-hidden="true">↗</span></button>
+      <p class="form-disclaimer">Nessun dato viene salvato o inviato.</p>
+      <div class="booking-result" data-booking-result role="status" hidden></div>
+    </form> : <div class="booking-form booking-provider"><p class="eyebrow">Prenotazioni</p><h3>Il tuo tavolo</h3><p>Segui il collegamento per richiedere una prenotazione.</p><a class="button-primary" href={site.reservationHref}>Richiedi un tavolo <span aria-hidden="true">↗</span></a></div>}
+  </section>
+  <section class="hours-section container"><div><p class="eyebrow">Orari del concept</p><h2>Quando la notte<br /><em>ci trova.</em></h2></div><dl>{site.displayHours.map((entry) => <div><dt>{entry.day}</dt><dd>{entry.time}</dd></div>)}</dl></section>
+  <script>import "../scripts/booking";</script>
+</BaseLayout>

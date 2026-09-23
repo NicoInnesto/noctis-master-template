@@ -1,0 +1,21 @@
+---
+import { navigation, site } from "../config/site";
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <a class="brand" href="/" aria-label={`${site.label}, torna alla home`}>
+    <span class="brand-mark" aria-hidden="true">N<span>✦</span></span>
+    <span class="brand-name">NOCTIS<small>CUCINA & ALCHIMIA</small></span>
+  </a>
+  <nav class="desktop-nav" aria-label="Navigazione principale">
+    {navigation.map((item) => <a href={item.href} aria-current={path === item.href ? "page" : undefined}>{item.label}</a>)}
+  </nav>
+  <a class="header-book" href="/prenota/">Prenota <span aria-hidden="true">↗</span></a>
+  <details class="mobile-nav">
+    <summary aria-label="Apri il menu"><span></span><span></span><span class="mobile-nav-label">Menu</span></summary>
+    <nav aria-label="Navigazione mobile">
+      {navigation.map((item) => <a href={item.href} aria-label={item.label} aria-current={path === item.href ? "page" : undefined}>{item.label}</a>)}
+      <a href="/prenota/" aria-label="Prenota un tavolo">Prenota un tavolo <span aria-hidden="true">↗</span></a>
+    </nav>
+  </details>
+</header>

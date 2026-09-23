@@ -1,0 +1,58 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../config/site";
+import socialImage from "../assets/images/dining-room.jpg";
+import { getImage } from "astro:assets";
+import "../styles/global.css";
+
+interface Props { title: string; description: string; pageClass?: string; }
+const { title, description, pageClass = "" } = Astro.props;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const social = await getImage({ src: socialImage, width: 1200, format: "webp", quality: 75 });
+const ogImage = Astro.site ? new URL(social.src, Astro.site).href : undefined;
+const structuredData = !site.isDemo && site.business ? {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: site.label,
+  description: site.description,
+  servesCuisine: site.business.cuisine,
+  telephone: site.business.telephone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.business.streetAddress,
+    postalCode: site.business.postalCode,
+    addressLocality: site.business.locality,
+    addressCountry: "IT",
+  },
+  url: Astro.site?.href,
+} : null;
+---
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#100d0c" />
+    <meta name="description" content={description} />
+    <meta name="robots" content={site.isDemo ? "noindex, nofollow" : "index, follow"} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <title>{title} | {site.label}</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content={`${title} | ${site.label}`} />
+    <meta property="og:description" content={description} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+  </head>
+  <body class={pageClass}>
+    <a class="skip-link" href="#main-content">Vai al contenuto</a>
+    <Header />
+    <main id="main-content"><slot /></main>
+    <Footer />
+  </body>
+</html>

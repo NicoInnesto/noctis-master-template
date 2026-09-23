@@ -1,0 +1,57 @@
+---
+import { Picture, Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { scenes } from "../data/scenes";
+import signatureDish from "../assets/images/signature-dish.jpg";
+import room from "../assets/images/room.jpg";
+---
+<BaseLayout title="Cucina & Alchimia" description="Entra nel mondo di Noctis: un concept di ristorante e cocktail bar a Bologna, tra cucina contemporanea e atmosfera notturna." pageClass="home-page">
+  <div class="story" data-story>
+    <div class="story-stage" data-story-stage>
+      {scenes.map((scene, index) => <section class="story-scene" id={scene.id} data-scene aria-labelledby={`scene-title-${scene.id}`} style={`--scene-position:${scene.position};--scene-mobile-position:${scene.mobilePosition}`}>
+        <div class="story-media" data-scene-media>
+          <Picture src={scene.image} formats={["avif"]} fallbackFormat="webp" widths={[640, 960, 1440, 1920]} sizes="100vw" alt={scene.imageAlt} loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} />
+        </div>
+        <div class="story-shade" aria-hidden="true"></div>
+        <div class="story-content container" data-scene-copy>
+          <p class="story-eyebrow"><span>{scene.count} / 0{scenes.length}</span><span class="eyebrow-line" aria-hidden="true"></span>{scene.eyebrow}</p>
+          {index === 0 ? <h1 id={`scene-title-${scene.id}`}>{scene.title}</h1> : <h2 id={`scene-title-${scene.id}`}>{scene.title}</h2>}
+          <p class="story-body">{scene.body}</p>
+          <a class="text-link light" href={scene.href}>{scene.cta}<span aria-hidden="true">↗</span></a>
+        </div>
+        <span class="story-side-label" aria-hidden="true">NOCTIS · CUCINA & ALCHIMIA</span>
+      </section>)}
+      <div class="story-rail" aria-hidden="true"><span data-story-progress></span><small data-story-count>01 / 04</small></div>
+      <a class="story-skip" href="#scopri">Salta l'esperienza <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+
+  <section class="home-intro container" id="scopri">
+    <div class="section-kicker"><span>01</span><span>Il nostro mondo</span></div>
+    <div>
+      <h2>Quando fuori corre tutto,<br /><em>qui il tempo rallenta.</em></h2>
+      <p>Noctis nasce per dare spazio a ciò che conta: un ingrediente, un calice, una conversazione. Una cucina radicata in Emilia e aperta al mondo, da vivere senza fretta.</p>
+      <a class="text-link" href="/chi-siamo/">Scopri la nostra filosofia <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="feature-grid" aria-label="Esplora Noctis">
+    <a class="feature-card" href="/menu/">
+      <Image src={signatureDish} width={1200} alt="Piatto della cucina contemporanea di Noctis" loading="lazy" />
+      <span class="feature-overlay"></span>
+      <span class="feature-content"><small>01 / La cucina</small><strong>Un piatto, una storia.</strong><span>Esplora il menu ↗</span></span>
+    </a>
+    <a class="feature-card" href="/chi-siamo/">
+      <Image src={room} width={1200} alt="Sala con luci soffuse e tavoli apparecchiati" loading="lazy" />
+      <span class="feature-overlay"></span>
+      <span class="feature-content"><small>02 / Il luogo</small><strong>L'essenza della notte.</strong><span>Entra nel locale ↗</span></span>
+    </a>
+  </section>
+
+  <section class="home-quote container">
+    <p class="eyebrow">La nostra filosofia</p>
+    <blockquote>“Il lusso più grande è <em>avere tempo</em> per sentire ogni dettaglio.”</blockquote>
+    <a class="button-primary" href="/prenota/">La tua serata comincia qui <span aria-hidden="true">↗</span></a>
+  </section>
+  <script>import "../scripts/story";</script>
+</BaseLayout>

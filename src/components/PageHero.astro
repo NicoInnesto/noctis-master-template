@@ -1,0 +1,16 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+interface Props { eyebrow: string; title: string; intro: string; image: ImageMetadata; imageAlt: string; position?: string; }
+const { eyebrow, title, intro, image, imageAlt, position = "center" } = Astro.props;
+---
+<section class="page-hero" style={`--image-position:${position}`}>
+  <div class="page-hero-image"><Picture src={image} formats={["avif"]} fallbackFormat="webp" widths={[640, 960, 1440, 1920]} sizes="100vw" alt={imageAlt} loading="eager" fetchpriority="high" /></div>
+  <div class="page-hero-shade" aria-hidden="true"></div>
+  <div class="page-hero-content container">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p class="page-hero-intro">{intro}</p>
+  </div>
+  <span class="page-hero-index" aria-hidden="true">NOCTIS / BOLOGNA</span>
+</section>

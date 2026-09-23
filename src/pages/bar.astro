@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import MenuList from "../components/MenuList.astro";
+import { drinks } from "../data/menu";
+import image from "../assets/images/cocktail.jpg";
+---
+<BaseLayout title="Il bar" description="Alchimia liquida a Noctis: cocktail d'autore e una selezione pensata per accompagnare la serata.">
+  <PageHero eyebrow="Alchimia liquida" title="Il bar" intro="Un altro modo di raccontare la notte, un sorso alla volta." image={image} imageAlt="Cocktail in coppa servito al bancone" position="center 55%" />
+  <section class="editorial-split container">
+    <div class="section-kicker"><span>01</span><span>Il rituale</span></div>
+    <div><h2>Il bicchiere giusto<br /><em>cambia la prospettiva.</em></h2><p>La miscelazione incontra la cucina: botaniche, agrumi, note affumicate e abbinamenti che proseguono il racconto iniziato a tavola.</p></div>
+  </section>
+  <section class="bar-menu-section">
+    <div class="container bar-menu-inner"><div><p class="eyebrow">La nostra selezione</p><h2>Signature<br /><em>cocktails.</em></h2><p class="bar-note">Ricette e prezzi sono parte di questa demo e si sostituiscono facilmente nel template.</p></div><MenuList items={drinks} /></div>
+  </section>
+  <section class="center-cta container"><p class="eyebrow">Un'altra possibilità</p><h2>Lasciati sorprendere.</h2><p>Un aperitivo che diventa cena, una cena che diventa notte.</p><a class="button-primary" href="/prenota/">Prenota la tua serata <span aria-hidden="true">↗</span></a></section>
+</BaseLayout>

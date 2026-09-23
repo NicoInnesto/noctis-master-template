@@ -1,0 +1,20 @@
+---
+import { navigation, site } from "../config/site";
+---
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <p class="eyebrow">La serata comincia qui</p>
+      <p class="footer-statement">Ci vediamo<br /><em>dopo il tramonto.</em></p>
+    </div>
+    <a class="circle-link" href="/prenota/" aria-label="Vai alle prenotazioni"><span aria-hidden="true">↗</span></a>
+  </div>
+  <div class="footer-bottom">
+    <a class="footer-logo" href="/">NOCTIS<span>✦</span></a>
+    <nav aria-label="Navigazione nel piè di pagina">
+      {navigation.slice(1).map((item) => <a href={item.href}>{item.label}</a>)}
+      <a href="/prenota/">Prenota</a>
+    </nav>
+    <p>{site.isDemo ? "Concept dimostrativo · Ristorante immaginario" : site.displayAddress}<br />© {new Date().getFullYear()} {site.label} · <a href="/privacy/">Privacy</a></p>
+  </div>
+</footer>

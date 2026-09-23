@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import image from "../assets/images/location.jpg";
+import { site } from "../config/site";
+---
+<BaseLayout title="Contatti" description="Informazioni sul concept Noctis: ambientazione, orari dimostrativi e collegamenti per esplorare il sito.">
+  <PageHero eyebrow="Restiamo in contatto" title="Ci vediamo di sera" intro="Tutte le informazioni dell'esperienza Noctis, in un luogo solo." image={image} imageAlt="Interno di ristorante con tavoli apparecchiati" position="center 55%" />
+  <section class="contact-layout container">
+    <div><p class="eyebrow">Il luogo</p><h2>Nel cuore<br /><em>di Bologna.</em></h2><p>Noctis è ambientato a Bologna, ma questo è un ristorante fittizio. Indirizzo, telefono e canali di contatto di un cliente reale saranno inseriti nel template prima della pubblicazione.</p><a class="text-link" href="/prenota/">Scopri il percorso di prenotazione <span aria-hidden="true">↗</span></a></div>
+    <div class="contact-card"><p class="eyebrow">Orari dimostrativi</p><dl>{site.displayHours.map((entry) => <div><dt>{entry.day}</dt><dd>{entry.time}</dd></div>)}</dl><p class="contact-card-note">Gli orari descrivono il concept e non un locale aperto al pubblico.</p></div>
+  </section>
+</BaseLayout>
