@@ -1,3 +1,5 @@
+import { withBase } from "./paths";
+
 export const site = {
   name: "NOCTIS",
   label: "Noctis",
@@ -31,9 +33,9 @@ export const site = {
 };
 
 export const navigation = [
-  { label: "Home", href: "/" },
-  { label: "La cucina", href: "/menu/" },
-  { label: "Il bar", href: "/bar/" },
-  { label: "Chi siamo", href: "/chi-siamo/" },
-  { label: "Contatti", href: "/contatti/" },
+  { label: "Home", href: withBase("/") },
+  { label: "La cucina", href: withBase("/menu/") },
+  { label: "Il bar", href: withBase("/bar/") },
+  { label: "Chi siamo", href: withBase("/chi-siamo/") },
+  { label: "Contatti", href: withBase("/contatti/") },
 ] as const;

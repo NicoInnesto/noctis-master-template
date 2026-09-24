@@ -1,3 +1,4 @@
+import { withBase } from "../config/paths";
 import { imagery } from "./imagery";
 import diningRoom from "../assets/images/dining-room.jpg";
 import kitchen from "../assets/images/chef.jpg";
@@ -17,7 +18,7 @@ export const scenes = [
     position: "center center",
     mobilePosition: "54% center",
     cameraOrigin: "58% 48%",
-    href: "/chi-siamo/",
+    href: withBase("/chi-siamo/"),
     cta: "Entra nel mondo Noctis",
   },
   {
@@ -32,7 +33,7 @@ export const scenes = [
     position: "52% center",
     mobilePosition: "58% center",
     cameraOrigin: "54% 54%",
-    href: "/menu/",
+    href: withBase("/menu/"),
     cta: "Scopri la cucina",
   },
   {
@@ -47,7 +48,7 @@ export const scenes = [
     position: "54% 57%",
     mobilePosition: "center 55%",
     cameraOrigin: "48% 52%",
-    href: "/bar/",
+    href: withBase("/bar/"),
     cta: "Esplora il bar",
   },
   {
@@ -62,7 +63,7 @@ export const scenes = [
     position: "center center",
     mobilePosition: "55% center",
     cameraOrigin: "55% 50%",
-    href: "/prenota/",
+    href: withBase("/prenota/"),
     cta: "Riserva la tua serata",
   },
 ] as const;

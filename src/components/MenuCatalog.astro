@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../config/paths";
 import MenuList from "./MenuList.astro";
 import type { MenuCategory } from "../data/menu";
 
@@ -30,7 +31,7 @@ const { categories, eyebrow, navigationLabel, asideNote, closingText, closingLin
       </div>
       <MenuList items={category.items} />
     </section>)}
-    <div class="menu-end"><p>{closingText}</p><a class="text-link" href="/prenota/">{closingLink}</a></div>
+    <div class="menu-end"><p>{closingText}</p><a class="text-link" href={withBase("/prenota/")}>{closingLink}</a></div>
   </div>
 </div>
 <script>import "../scripts/menu-reveal";</script>

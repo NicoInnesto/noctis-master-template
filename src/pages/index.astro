@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../config/paths";
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { scenes } from "../data/scenes";
@@ -35,17 +36,17 @@ import room from "../assets/images/room.jpg";
     <div>
       <h2>Quando fuori corre tutto,<br /><em>qui il tempo rallenta.</em></h2>
       <p>Noctis nasce per dare spazio a ciò che conta: un ingrediente, un calice, una conversazione. Una cucina radicata in Emilia e aperta al mondo, da vivere senza fretta.</p>
-      <a class="text-link" href="/chi-siamo/">Scopri la nostra filosofia</a>
+      <a class="text-link" href={withBase("/chi-siamo/")}>Scopri la nostra filosofia</a>
     </div>
   </section>
 
   <section class="feature-grid" aria-label="Esplora Noctis">
-    <a class="feature-card" href="/menu/">
+    <a class="feature-card" href={withBase("/menu/")}>
       <Image src={signatureDish} width={1200} alt="Piatto della cucina contemporanea di Noctis" loading="lazy" />
       <span class="feature-overlay"></span>
       <span class="feature-content"><small>01 / La cucina</small><strong>Un piatto, una storia.</strong><span>Esplora il menu</span></span>
     </a>
-    <a class="feature-card" href="/chi-siamo/">
+    <a class="feature-card" href={withBase("/chi-siamo/")}>
       <Image src={room} width={1200} alt="Sala con luci soffuse e tavoli apparecchiati" loading="lazy" />
       <span class="feature-overlay"></span>
       <span class="feature-content"><small>02 / Il luogo</small><strong>L'essenza della notte.</strong><span>Entra nel locale</span></span>
@@ -55,7 +56,7 @@ import room from "../assets/images/room.jpg";
   <section class="home-quote container">
     <p class="eyebrow">La nostra filosofia</p>
     <blockquote>“Il lusso più grande è <em>avere tempo</em> per sentire ogni dettaglio.”</blockquote>
-    <a class="button-primary" href="/prenota/">La tua serata comincia qui</a>
+    <a class="button-primary" href={withBase("/prenota/")}>La tua serata comincia qui</a>
   </section>
   <script>import "../scripts/image-fallback"; import "../scripts/story";</script>
 </BaseLayout>

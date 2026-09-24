@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../config/paths";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../config/site";
@@ -37,8 +38,8 @@ const structuredData = !site.isDemo && site.business ? {
     <meta name="description" content={description} />
     <meta name="robots" content={site.isDemo ? "noindex, nofollow" : "index, follow"} />
     {canonical && <link rel="canonical" href={canonical} />}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <link rel="preload" href={withBase("/fonts/fraunces-latin.woff2")} as="font" type="font/woff2" crossorigin />
     {(pageClass === "home-page" || pageClass === "about-page") && <link rel="preconnect" href="https://images.unsplash.com" crossorigin />}
     <title>{title} | {site.label}</title>
     <meta property="og:type" content="website" />
