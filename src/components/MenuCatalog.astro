@@ -1,6 +1,7 @@
 ---
 import { withBase } from "../config/paths";
 import MenuList from "./MenuList.astro";
+import MenuCategoryIcon from "./MenuCategoryIcon.astro";
 import type { MenuCategory } from "../data/menu";
 
 interface Props {
@@ -13,6 +14,10 @@ interface Props {
 }
 
 const { categories, eyebrow, navigationLabel, asideNote, closingText, closingLink } = Astro.props;
+const mobileLabels: Record<string, string> = {
+  antipasti: "Per iniziare", primi: "La terra", secondi: "Secondi", dessert: "Dessert",
+  "signature-cocktails": "Signature", classici: "Classici", vini: "Vini", "zero-alcol": "Zero alcol",
+};
 ---
 <div class="menu-layout container" data-menu-catalog>
   <aside class="menu-aside">
@@ -20,6 +25,12 @@ const { categories, eyebrow, navigationLabel, asideNote, closingText, closingLin
     <nav aria-label={navigationLabel}>
       {categories.map((category) => <a href={`#${category.id}`}>{category.title}</a>)}
     </nav>
+    <div class="menu-mobile-tabs" role="group" aria-label={navigationLabel}>
+      {categories.map((category) => <button type="button" class="menu-mobile-tab" data-menu-tab={category.id} aria-controls={category.id} aria-pressed="false" aria-label={category.title}>
+        <span class="menu-mobile-tab-icon"><MenuCategoryIcon category={category.id} /></span>
+        <span class="menu-mobile-tab-label" aria-hidden="true">{mobileLabels[category.id] ?? category.title}</span>
+      </button>)}
+    </div>
     <p class="aside-note">{asideNote}</p>
   </aside>
   <div class="menu-main">

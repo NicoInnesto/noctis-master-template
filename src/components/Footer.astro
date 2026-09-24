@@ -1,6 +1,6 @@
 ---
 import { withBase } from "../config/paths";
-import { navigation, site } from "../config/site";
+import { site } from "../config/site";
 import SocialLinks from "./SocialLinks.astro";
 ---
 <footer class="site-footer">
@@ -13,10 +13,6 @@ import SocialLinks from "./SocialLinks.astro";
   </div>
   <div class="footer-bottom">
     <a class="footer-logo" href={withBase("/")}>NOCTIS<span>✦</span></a>
-    <nav aria-label="Navigazione nel piè di pagina">
-      {navigation.slice(1).map((item) => <a href={item.href}>{item.label}</a>)}
-      <a href={withBase("/prenota/")}>Prenota</a>
-    </nav>
     <div class="footer-meta"><SocialLinks /><p>{site.isDemo ? "Concept dimostrativo · Ristorante immaginario" : site.displayAddress}<br />© {new Date().getFullYear()} {site.label} · <a href={withBase("/privacy/")}>Privacy</a></p></div>
   </div>
 </footer>

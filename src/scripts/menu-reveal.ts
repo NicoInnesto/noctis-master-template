@@ -3,6 +3,35 @@ export {};
 const catalog = document.querySelector<HTMLElement>("[data-menu-catalog]");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+if (catalog) {
+  const phone = window.matchMedia("(max-width: 620px)");
+  const tabs = [...catalog.querySelectorAll<HTMLButtonElement>("[data-menu-tab]")];
+  const categories = [...catalog.querySelectorAll<HTMLElement>(".menu-category")];
+  let activeId = categories[0]?.id;
+
+  const selectCategory = (id: string) => {
+    if (!categories.some((category) => category.id === id)) return;
+    activeId = id;
+    for (const category of categories) category.hidden = phone.matches && category.id !== id;
+    for (const tab of tabs) tab.setAttribute("aria-pressed", String(tab.dataset.menuTab === id));
+  };
+
+  const syncLayout = () => {
+    catalog.classList.toggle("is-mobile-tabs", phone.matches);
+    selectCategory(activeId || categories[0]?.id || "");
+  };
+
+  for (const tab of tabs) tab.addEventListener("click", () => selectCategory(tab.dataset.menuTab || ""));
+  phone.addEventListener("change", syncLayout);
+  window.addEventListener("hashchange", () => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (id) selectCategory(id);
+  });
+  const initialHash = decodeURIComponent(window.location.hash.slice(1));
+  if (initialHash) activeId = initialHash;
+  syncLayout();
+}
+
 if (catalog && "IntersectionObserver" in window && !reducedMotion.matches) {
   const rows = [...catalog.querySelectorAll<HTMLElement>(".menu-row")];
   const observer = new IntersectionObserver((entries) => {
