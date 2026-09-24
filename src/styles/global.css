@@ -133,8 +133,14 @@ em{font-weight:400}
 .image-story-photo{height:clamp(32rem,55vw,48rem);overflow:hidden}
 .image-story-photo img{width:100%;height:100%;object-fit:cover}
 .image-story-copy h2{margin:1.3rem 0 2rem}
-.wide-image{height:clamp(25rem,54vw,50rem);overflow:hidden}
-.wide-image img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.chef-biography{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);align-items:center;gap:clamp(3rem,8vw,9rem);padding-block:clamp(5rem,8vw,9rem)}
+.chef-biography-photo{position:relative;min-width:0;margin:0;aspect-ratio:4/5;overflow:hidden;background:#201812}
+.chef-biography-photo img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.chef-biography-photo figcaption{position:absolute;left:1.5rem;bottom:1.35rem;padding:.55rem .75rem;background:rgba(23,17,14,.78);color:var(--cream);font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase}
+.chef-biography-copy h2{margin:1.2rem 0 2rem;font-size:clamp(2.8rem,4.8vw,5.6rem);line-height:1.08;letter-spacing:-.055em}
+.chef-biography-copy h2 em{color:#9d7650}
+.chef-biography-copy>p:not(.eyebrow){max-width:43rem;margin:0 0 1.3rem;color:#55493f;font-size:clamp(1rem,1.2vw,1.1rem)}
+.chef-biography-copy>p.chef-biography-note{margin-top:2rem;color:#8b755f;font-size:.8rem;letter-spacing:.04em}
 
 /* Reservations and contact */
 .booking-layout{display:grid;grid-template-columns:.85fr 1fr;gap:clamp(3rem,9vw,10rem);padding-block:clamp(5rem,9vw,9rem)}
@@ -169,16 +175,16 @@ em{font-weight:400}
 .legal-page .text-link{margin-top:2rem}
 
 /* Footer */
-.site-footer{background:#17110e;color:var(--cream);padding:clamp(4rem,8vw,8rem) var(--gutter) 1.5rem}
-.footer-top{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;padding-bottom:clamp(5rem,8vw,8rem);border-bottom:1px solid rgba(255,255,255,.2)}
-.footer-statement{margin-top:1.3rem;font-family:var(--display);font-size:clamp(3.7rem,7vw,8.5rem);line-height:1.02;letter-spacing:-.06em}
+.site-footer{background:#17110e;color:var(--cream);padding:clamp(2.25rem,4vw,3.75rem) var(--gutter) 1.15rem}
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding-bottom:clamp(2rem,3.2vw,3rem);border-bottom:1px solid rgba(255,255,255,.2)}
+.footer-statement{margin-top:.6rem;font-family:var(--display);font-size:clamp(2.9rem,5.2vw,5.8rem);line-height:1.02;letter-spacing:-.06em}
 .footer-statement em{color:var(--gold)}
-.circle-link{display:grid;place-items:center;width:clamp(4.2rem,7vw,7.5rem);height:clamp(4.2rem,7vw,7.5rem);flex:none;border:1px solid rgba(255,255,255,.65);border-radius:50%;font-size:2rem;transition:background .25s,color .25s,transform .25s}
+.circle-link{display:grid;place-items:center;width:clamp(4.2rem,5.4vw,5.5rem);height:clamp(4.2rem,5.4vw,5.5rem);flex:none;border:1px solid rgba(255,255,255,.65);border-radius:50%;font-size:2rem;transition:background .25s,color .25s,transform .25s}
 .circle-link:hover{background:var(--cream);color:var(--ink);transform:rotate(45deg)}
-.footer-bottom{display:grid;grid-template-columns:.55fr 1fr .7fr;gap:3rem;padding-top:2rem;align-items:start}
+.footer-bottom{display:grid;grid-template-columns:.55fr 1fr .7fr;gap:clamp(1rem,2.5vw,2.5rem);padding-top:1.35rem;align-items:start}
 .footer-logo{font-family:var(--display);font-size:2rem;letter-spacing:.1em}
 .footer-logo span{font-size:.65rem;vertical-align:top;color:var(--gold)}
-.footer-bottom nav{display:flex;flex-wrap:wrap;gap:.8rem 1.5rem;padding-top:.45rem}
+.footer-bottom nav{display:flex;flex-wrap:wrap;gap:.5rem 1rem;padding-top:.2rem}
 .footer-bottom nav a,.footer-bottom p{font-size:.72rem;line-height:1.6;color:rgba(255,255,255,.67)}
 .footer-bottom nav a:hover,.footer-bottom p a:hover{color:var(--gold)}
 .footer-bottom p{text-align:right}
@@ -190,6 +196,7 @@ em{font-weight:400}
   .site-header{min-height:5rem}.desktop-nav,.header-book{display:none}.mobile-nav{display:block;margin-left:auto}.mobile-nav summary{display:flex;align-items:center;gap:.3rem;list-style:none;cursor:pointer}.mobile-nav summary::-webkit-details-marker{display:none}.mobile-nav summary span:not(.mobile-nav-label){display:block;width:1.25rem;height:1px;background:currentColor}.mobile-nav summary span:nth-child(2){position:absolute;transform:translateY(.34rem)}.mobile-nav-label{margin-left:.45rem;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.16em}.mobile-nav nav{position:absolute;top:calc(100% + 1px);left:0;right:0;display:flex;flex-direction:column;padding:1.4rem var(--gutter) 2rem;background:#17110e;box-shadow:0 1.2rem 2rem rgba(0,0,0,.28)}.mobile-nav nav a{display:flex;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.15);font-family:var(--display);font-size:1.5rem}.mobile-nav nav a[aria-current="page"]{color:var(--gold)}
   .story-media img{object-position:var(--scene-mobile-position)}.story-content{padding-top:10rem;padding-bottom:5.5rem}.story-content h1,.story-content h2{font-size:clamp(3.7rem,12vw,6.5rem)}.story-body{max-width:28rem}.story-side-label{display:none}
   .home-intro,.editorial-split,.menu-layout,.booking-layout,.contact-layout{grid-template-columns:1fr;gap:2rem}.home-intro,.editorial-split{padding-block:5rem}.section-kicker{padding:0}.menu-aside{position:static}.menu-aside nav{display:flex;flex-direction:row;flex-wrap:wrap;gap:.4rem 1.5rem}.menu-aside nav a{border-bottom:0}.menu-main{padding-top:1rem}.feature-card{min-height:34rem}.image-story{gap:3rem}.footer-bottom{grid-template-columns:1fr 1fr}.footer-bottom p{text-align:left}
+  .chef-biography{grid-template-columns:1fr;gap:3rem;padding-block:5rem}.chef-biography-photo{max-width:36rem}
 }
 @media(max-width:620px){
   :root{--gutter:1.25rem}.site-header{padding-block:.85rem}.brand-mark{width:2.2rem;height:2.2rem;font-size:1.2rem}.brand-name{font-size:1.08rem}.brand-name small{font-size:.38rem}
@@ -197,8 +204,8 @@ em{font-weight:400}
   .feature-grid{grid-template-columns:1fr}.feature-card{min-height:33rem}.feature-content{bottom:2rem}.home-intro h2,.editorial-split h2,.image-story h2,.booking-intro h2,.hours-section h2,.contact-layout h2{font-size:clamp(3rem,11vw,4.6rem)}.home-quote blockquote{font-size:clamp(2.4rem,10vw,4rem)}
   .page-hero{min-height:35rem}.page-hero h1{font-size:clamp(3.7rem,14vw,6rem)}.page-hero-content{padding-bottom:4rem}.page-hero-index{display:none}.page-hero-shade{background:linear-gradient(0deg,rgba(8,5,4,.84),rgba(8,5,4,.1) 90%)}.page-hero-image img{object-position:50% center}
   .menu-layout{padding-block:4rem}.menu-category{margin-bottom:4rem}.menu-aside nav a{font-size:.7rem;padding:.5rem 0}.menu-row{gap:1rem}.menu-row h3{font-size:1.35rem}.menu-row p{font-size:.84rem}.menu-price{font-size:1rem}
-  .image-story{grid-template-columns:1fr}.image-story-photo{height:30rem}.wide-image{height:25rem}.form-grid{grid-template-columns:1fr}.booking-form{padding:1.5rem}.booking-layout{padding-block:4rem}.hours-section{grid-template-columns:1fr;gap:2rem}.contact-layout{padding-block:4rem}.contact-card{padding:1.5rem}
-  .footer-top{align-items:flex-start}.footer-statement{font-size:clamp(3rem,12vw,4.7rem)}.circle-link{width:3.5rem;height:3.5rem;font-size:1.4rem}.footer-bottom{grid-template-columns:1fr;gap:1.5rem}.footer-bottom nav{gap:.55rem 1.2rem}
+  .image-story{grid-template-columns:1fr}.image-story-photo{height:30rem}.chef-biography{grid-template-columns:1fr;gap:2.5rem;padding-block:4.5rem}.chef-biography-photo{max-width:36rem}.chef-biography-copy h2{font-size:clamp(2.8rem,9vw,4.6rem)}.form-grid{grid-template-columns:1fr}.booking-form{padding:1.5rem}.booking-layout{padding-block:4rem}.hours-section{grid-template-columns:1fr;gap:2rem}.contact-layout{padding-block:4rem}.contact-card{padding:1.5rem}
+  .footer-top{align-items:flex-start;gap:1rem}.footer-statement{font-size:clamp(2.6rem,10vw,4.1rem)}.circle-link{width:3.5rem;height:3.5rem;font-size:1.4rem}.footer-bottom{grid-template-columns:1fr;gap:1rem}.footer-bottom nav{gap:.5rem 1rem}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.story.is-enhanced .story-scene{position:relative;opacity:1;visibility:visible;pointer-events:auto}.story.is-enhanced .story-stage{height:auto}.menu-row.will-reveal{opacity:1;transform:none}}
 
@@ -259,7 +266,7 @@ em{font-weight:400}
 .button-primary,.header-book{justify-content:center;gap:0}
 .circle-link{font-size:.72rem;font-family:var(--sans);font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .circle-link:hover{transform:scale(1.035)}
-.footer-meta{display:flex;flex-direction:column;align-items:flex-end;gap:1.5rem}
+.footer-meta{display:flex;flex-direction:column;align-items:flex-end;gap:.8rem}
 .social-links{display:flex;align-items:center;gap:.65rem}
 .social-links a{display:grid;place-items:center;width:2.6rem;height:2.6rem;border:1px solid currentColor;border-radius:50%;color:inherit;transition:background .25s ease,color .25s ease,transform .25s ease}
 .social-links a:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}

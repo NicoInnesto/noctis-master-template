@@ -5,7 +5,7 @@ import PageHero from "../components/PageHero.astro";
 import room from "../assets/images/room.jpg";
 import chef from "../assets/images/noctis-chef-cutout.png";
 import diningRoom from "../assets/images/noctis-dining-room.png";
-import rose from "../assets/images/rose-room.jpg";
+import biography from "../assets/images/noctis-chef-biography.png";
 ---
 <BaseLayout title="Chi siamo" description="La filosofia di Noctis: un rifugio urbano immaginario dove cucina, miscelazione e ospitalità invitano a rallentare." pageClass="about-page">
   <PageHero eyebrow="La nostra storia" title="L'essenza della notte" intro="Uno spazio per fermarsi, guardare meglio e sentire di più." image={room} imageAlt="Sala elegante con lampade calde" position="center 53%" />
@@ -36,7 +36,20 @@ import rose from "../assets/images/rose-room.jpg";
       <p class="owner-orbit-caption">Ritratto generato · concept Noctis</p>
     </div>
   </section>
-  <section class="wide-image"><Image src={rose} width={1920} alt="Tavolo con una rosa in un ambiente raccolto" loading="lazy" /></section>
+  <section class="chef-biography container" aria-labelledby="biography-title">
+    <figure class="chef-biography-photo">
+      <Image src={biography} width={1122} height={1402} format="webp" quality={84} alt="Lo chef immaginario Matteo Rinaldi prepara un piatto nella cucina di Noctis" loading="lazy" decoding="async" />
+      <figcaption>Matteo Rinaldi · chef del concept Noctis</figcaption>
+    </figure>
+    <div class="chef-biography-copy">
+      <p class="eyebrow">03 / Le origini</p>
+      <h2 id="biography-title">Dalle radici emiliane<br /><em>alla notte di Bologna.</em></h2>
+      <p>Matteo Rinaldi cresce a Modena, dove impara che una ricetta comincia molto prima del servizio: nelle mani che tirano la sfoglia, nella scelta degli ingredienti, nel tempo concesso a ogni preparazione. Le cucine di Bologna e Milano gli insegnano disciplina e precisione, senza allontanarlo dai sapori con cui è cresciuto.</p>
+      <p>Quando torna in Emilia, sceglie Bologna per dare forma a Noctis. Immagina un luogo raccolto, aperto alla città dopo il tramonto, dove la tradizione incontra tecniche contemporanee e ogni piatto conserva un legame riconoscibile con la materia prima.</p>
+      <p>Il suo menu segue le stagioni. A restare costante è l'idea di un'ospitalità attenta, capace di lasciare spazio alla conversazione e al piacere di fermarsi ancora un po'.</p>
+      <p class="chef-biography-note">Matteo Rinaldi e la sua storia sono parte di questa demo immaginaria.</p>
+    </div>
+  </section>
   <section class="center-cta container"><p class="eyebrow">Ti aspettiamo, idealmente</p><h2>Il tuo posto nella notte.</h2><p>Esplora l'esperienza dimostrativa di prenotazione.</p><a class="button-primary" href="/prenota/">Scopri le prenotazioni</a></section>
   <script>import "../scripts/image-fallback"; import "../scripts/owner-orbit";</script>
 </BaseLayout>
