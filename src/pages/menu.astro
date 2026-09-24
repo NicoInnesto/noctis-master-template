@@ -1,24 +1,18 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
-import MenuList from "../components/MenuList.astro";
+import MenuCatalog from "../components/MenuCatalog.astro";
 import { menu } from "../data/menu";
 import image from "../assets/images/signature-dish.jpg";
 ---
 <BaseLayout title="La cucina" description="Esplora il menu dimostrativo di Noctis: cucina contemporanea ispirata all'Emilia, dai primi ai dessert.">
   <PageHero eyebrow="Materia · Istinto · Memoria" title="La cucina" intro="Radici riconoscibili. Idee che non hanno paura di cambiare prospettiva." image={image} imageAlt="Piatto contemporaneo su ceramica scura" position="center 56%" />
-  <div class="menu-layout container">
-    <aside class="menu-aside">
-      <p class="eyebrow">Esplora il menu</p>
-      <nav aria-label="Categorie del menu">{menu.map((category) => <a href={`#${category.id}`}>{category.title}</a>)}</nav>
-      <p class="aside-note">Una proposta immaginaria che racconta lo stile del concept Noctis.</p>
-    </aside>
-    <div class="menu-main">
-      {menu.map((category, index) => <section class="menu-category" id={category.id} aria-labelledby={`title-${category.id}`}>
-        <div class="menu-category-head"><span>0{index + 1} / 0{menu.length}</span><h2 id={`title-${category.id}`}>{category.title}</h2><p>{category.intro}</p></div>
-        <MenuList items={category.items} />
-      </section>)}
-      <div class="menu-end"><p>I sapori cambiano con le stagioni. Il piacere di scoprirli resta.</p><a class="text-link" href="/prenota/">Riserva la tua serata</a></div>
-    </div>
-  </div>
+  <MenuCatalog
+    categories={menu}
+    eyebrow="Esplora il menu"
+    navigationLabel="Categorie del menu"
+    asideNote="Una proposta immaginaria che racconta lo stile del concept Noctis."
+    closingText="I sapori cambiano con le stagioni. Il piacere di scoprirli resta."
+    closingLink="Riserva la tua serata"
+  />
 </BaseLayout>

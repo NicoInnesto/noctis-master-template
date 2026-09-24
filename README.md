@@ -23,14 +23,17 @@ SITE_URL=https://indirizzo-del-sito.example npm run build
 | Identità, navigazione, modalità prenotazione, stato demo | `src/config/site.ts` |
 | Testi e immagini della home | `src/data/scenes.ts` |
 | Foto segnaposto Unsplash | `src/data/imagery.ts` |
-| Piatti, bevande e prezzi | `src/data/menu.ts` |
+| Piatti, drink, vini e prezzi | `src/data/menu.ts` |
+| Catalogo condiviso Cucina/Bar | `src/components/MenuCatalog.astro`, `src/components/MenuList.astro` |
 | Aspetto e componenti condivisi | `src/styles/global.css`, `src/components/` |
-| Animazioni home e ritratto | `src/scripts/story.ts`, `src/scripts/owner-orbit.ts` |
+| Animazioni home, ritratto e voci del menu | `src/scripts/story.ts`, `src/scripts/owner-orbit.ts`, `src/scripts/menu-reveal.ts` |
 | SEO e struttura delle pagine | `src/layouts/BaseLayout.astro`, `src/pages/` |
 
 La modalità `demo` mostra un riepilogo locale della prenotazione senza inviare dati. Per un cliente reale, impostare `reservationMode` su `phone`, `whatsapp` o `external` e valorizzare `reservationHref`. Il template mostrerà un collegamento al canale scelto. Inserire anche informazioni aziendali verificate nel campo `business`.
 
 L'indirizzo e la mappa sono illustrativi. Il click sull'immagine apre una ricerca Google Maps in una nuova scheda. Instagram e Facebook usano per ora `href="#"` e non navigano; aggiornarli in `src/config/site.ts` quando esistono profili reali. Le foto esterne sono richieste a `images.unsplash.com` con larghezze responsive e qualità limitata; sostituirle con immagini definitive ottimizzate e autocontenute per il sito reale.
+
+Le pagine La Cucina e Il Bar usano lo stesso catalogo a due colonne. Su desktop le categorie restano visibili durante lo scroll; su schermi stretti precedono le sezioni in un layout verticale. Le voci appaiono con una transizione leggera al loro ingresso nella finestra; senza JavaScript e con movimento ridotto restano sempre leggibili.
 
 ## Prima della pubblicazione per un cliente reale
 
