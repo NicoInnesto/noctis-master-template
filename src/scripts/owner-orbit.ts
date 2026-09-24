@@ -25,16 +25,13 @@ if (orbit && stage) {
       gsap.set(halo, { z: 80, force3D: true });
       gsap.set(flare, { z: 240, force3D: true });
 
-      // The last portion of the pinned scroll is an intentional still frame.
-      // It changes only this inert value, leaving the chef and text untouched.
-      const hold = { progress: 0 };
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: orbit,
           start: "top top",
-          end: () => `+=${Math.round(window.innerHeight * 2.3)}`,
+          end: () => `+=${Math.round(window.innerHeight * 0.95)}`,
           pin: stage,
-          scrub: 0.45,
+          scrub: 0.25,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
@@ -58,8 +55,7 @@ if (orbit && stage) {
           { xPercent: 0, autoAlpha: 0.12, duration: 1, ease: "none" }, 0)
         .fromTo(copy,
           { y: 35, autoAlpha: 0.78 },
-          { y: 0, autoAlpha: 1, duration: 0.85, ease: "power2.out" }, 0.1)
-        .to(hold, { progress: 1, duration: 1.65, ease: "none" }, 1);
+          { y: 0, autoAlpha: 1, duration: 0.85, ease: "power2.out" }, 0.1);
 
       ScrollTrigger.refresh();
       return () => {
