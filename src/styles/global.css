@@ -209,7 +209,7 @@ em{font-weight:400}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.story.is-enhanced .story-scene{position:relative;opacity:1;visibility:visible;pointer-events:auto}.story.is-enhanced .story-stage{height:auto}.menu-row.will-reveal{opacity:1;transform:none}}
 
-/* Film direction. Only the pinned desktop experience promotes these layers. */
+/* Film direction: desktop and touch have separate scroll timelines. */
 .story-letterbox,.story-light-leak{display:none;pointer-events:none}
 .story.is-enhanced .story-scene,.story.is-enhanced .story-media,.story.is-enhanced .story-content{will-change:transform,opacity}
 .story.is-enhanced .story-media,.story.is-enhanced .story-content{backface-visibility:hidden}
@@ -219,6 +219,15 @@ em{font-weight:400}
 .story.is-enhanced .story-light-leak{position:absolute;inset:-12% -25%;z-index:26;display:block;background:linear-gradient(108deg,transparent 25%,rgba(214,150,76,.06) 39%,rgba(250,213,158,.66) 51%,rgba(214,150,76,.08) 63%,transparent 76%);mix-blend-mode:screen;opacity:0;will-change:transform,opacity}
 .story.is-enhanced .story-skip{bottom:3.7rem;border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:.4rem}
 .story.is-enhanced .story-side-label{display:none}
+
+@media(max-width:1023px), (hover:none), (pointer:coarse){
+  .story.is-mobile-enhanced .story-letterbox,.story.is-mobile-enhanced .story-light-leak{display:none}
+  .story.is-mobile-enhanced .story-rail{top:6.5rem;right:var(--gutter);gap:0;transform:none;writing-mode:horizontal-tb}
+  .story.is-mobile-enhanced .story-rail::before,.story.is-mobile-enhanced .story-rail>span{display:none}
+  .story.is-mobile-enhanced .story-skip{right:var(--gutter);bottom:1.3rem}
+  .story.is-mobile-enhanced .story-content{padding-top:7rem;padding-bottom:5.5rem}
+  .owner-orbit.is-mobile-enhanced .owner-orbit-world,.owner-orbit.is-mobile-enhanced .owner-orbit-room,.owner-orbit.is-mobile-enhanced .owner-orbit-chef{will-change:transform}
+}
 
 /* A generated cutout, a separate room plate and warm light occupy independent 3D planes. */
 .owner-orbit{background:#0e0c0b;color:var(--cream)}

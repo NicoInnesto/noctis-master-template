@@ -64,5 +64,45 @@ if (orbit && stage) {
         gsap.set([world, room, chef, halo, flare, copy], { clearProps: "all" });
       };
     });
+    media.add("(max-width: 1023px) and (prefers-reduced-motion: no-preference), (hover: none) and (prefers-reduced-motion: no-preference), (pointer: coarse) and (prefers-reduced-motion: no-preference)", () => {
+      const visual = stage.querySelector<HTMLElement>("[data-owner-visual]");
+      if (!visual) return;
+      orbit.classList.add("is-mobile-enhanced");
+      gsap.set(world, { transformPerspective: 1100, transformStyle: "preserve-3d", force3D: true });
+      gsap.set(room, { z: -80, force3D: true });
+      gsap.set(chef, { z: 65, transformOrigin: "50% 27%", force3D: true });
+      gsap.set(halo, { z: 30, force3D: true });
+
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: visual,
+          start: "top 85%",
+          end: "bottom 15%",
+          scrub: 0.2,
+          invalidateOnRefresh: true,
+        },
+      });
+      timeline
+        .fromTo(world,
+          { rotationY: -5, rotationX: 2, xPercent: 2, scale: 0.96 },
+          { rotationY: 5, rotationX: -1, xPercent: -2, scale: 1.03, duration: 1, ease: "power1.inOut" }, 0)
+        .fromTo(room,
+          { xPercent: -2, scale: 1.08 },
+          { xPercent: 2, scale: 1.17, duration: 1, ease: "none" }, 0)
+        .fromTo(chef,
+          { xPercent: 9, yPercent: 2, rotationY: -12, rotationX: 3, scale: 0.92 },
+          { xPercent: -4, yPercent: -1, rotationY: 8, rotationX: -2, scale: 1.06, duration: 1, ease: "power1.inOut" }, 0)
+        .fromTo(halo,
+          { xPercent: -8, scale: 0.9 },
+          { xPercent: 3, scale: 1.08, duration: 1, ease: "none" }, 0);
+
+      ScrollTrigger.refresh();
+      return () => {
+        timeline.scrollTrigger?.kill();
+        timeline.kill();
+        orbit.classList.remove("is-mobile-enhanced");
+        gsap.set([world, room, chef, halo], { clearProps: "all" });
+      };
+    });
   });
 }
