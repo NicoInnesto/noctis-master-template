@@ -10,12 +10,12 @@ const path = Astro.url.pathname;
   <nav class="desktop-nav" aria-label="Navigazione principale">
     {navigation.map((item) => <a href={item.href} aria-current={path === item.href ? "page" : undefined}>{item.label}</a>)}
   </nav>
-  <a class="header-book" href="/prenota/">Prenota <span aria-hidden="true">↗</span></a>
+  <a class="header-book" href="/prenota/">Prenota</a>
   <details class="mobile-nav">
     <summary aria-label="Apri il menu"><span></span><span></span><span class="mobile-nav-label">Menu</span></summary>
     <nav aria-label="Navigazione mobile">
       {navigation.map((item) => <a href={item.href} aria-label={item.label} aria-current={path === item.href ? "page" : undefined}>{item.label}</a>)}
-      <a href="/prenota/" aria-label="Prenota un tavolo">Prenota un tavolo <span aria-hidden="true">↗</span></a>
+      <a href="/prenota/" aria-label="Prenota un tavolo">Prenota un tavolo</a>
     </nav>
   </details>
 </header>

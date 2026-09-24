@@ -3,19 +3,40 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
 import room from "../assets/images/room.jpg";
-import chef from "../assets/images/chef.jpg";
+import chef from "../assets/images/noctis-chef-cutout.png";
+import diningRoom from "../assets/images/noctis-dining-room.png";
 import rose from "../assets/images/rose-room.jpg";
 ---
-<BaseLayout title="Chi siamo" description="La filosofia di Noctis: un rifugio urbano immaginario dove cucina, miscelazione e ospitalità invitano a rallentare.">
+<BaseLayout title="Chi siamo" description="La filosofia di Noctis: un rifugio urbano immaginario dove cucina, miscelazione e ospitalità invitano a rallentare." pageClass="about-page">
   <PageHero eyebrow="La nostra storia" title="L'essenza della notte" intro="Uno spazio per fermarsi, guardare meglio e sentire di più." image={room} imageAlt="Sala elegante con lampade calde" position="center 53%" />
   <section class="editorial-split container">
     <div class="section-kicker"><span>01</span><span>Filosofia</span></div>
     <div><h2>Un rifugio urbano<br /><em>fuori dal rumore.</em></h2><p>Noctis nasce dall'idea che il tempo e la cura del dettaglio siano le forme più autentiche di lusso. L'atmosfera scura e avvolgente lascia spazio alla conversazione, al piatto, al bicchiere.</p><p>La nostra cucina immaginaria parte dalla tradizione emiliana e guarda al mondo. Tecnica e intuizione si incontrano, lasciando la materia prima al centro.</p></div>
   </section>
-  <section class="image-story container">
-    <div class="image-story-photo"><Image src={chef} width={1200} alt="Chef al lavoro in cucina" loading="lazy" /></div>
-    <div class="image-story-copy"><p class="eyebrow">02 / La cucina</p><h2>Ogni gesto<br /><em>ha un'intenzione.</em></h2><p>Piatti essenziali nell'idea, sorprendenti nell'esecuzione. Il menu suggerisce un viaggio, ma lascia a ciascuno il piacere di scegliere il proprio percorso.</p><a class="text-link" href="/menu/">Entra in cucina <span aria-hidden="true">↗</span></a></div>
+  <section class="owner-orbit" data-owner-orbit aria-labelledby="owner-title">
+    <div class="owner-orbit-stage" data-owner-stage>
+      <div class="owner-orbit-visual" data-owner-visual>
+        <div class="owner-orbit-world" data-owner-world>
+          <div class="owner-orbit-room" data-owner-room aria-hidden="true">
+            <Image src={diningRoom} width={1672} height={941} format="webp" quality={82} alt="" loading="lazy" decoding="async" />
+          </div>
+          <div class="owner-orbit-halo" data-owner-halo aria-hidden="true"></div>
+          <div class="owner-orbit-chef" data-owner-chef>
+            <Image src={chef} width={1024} height={1536} format="webp" quality={86} alt="Chef italiano immaginario di Noctis, con giacca scura, nella sala del ristorante" loading="lazy" decoding="async" />
+          </div>
+          <div class="owner-orbit-flare" data-owner-flare aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="owner-orbit-copy container" data-owner-copy>
+        <p class="eyebrow">02 / Il volto della visione</p>
+        <h2 id="owner-title">La notte ha<br /><em>un'anima.</em></h2>
+        <p>Un gesto, uno sguardo, una scelta precisa. In questa storia immaginaria, lo chef è il cuore di Noctis: la persona che trasforma la materia in un ricordo.</p>
+        <a class="text-link light" href="/menu/">Entra in cucina</a>
+      </div>
+      <p class="owner-orbit-caption">Ritratto generato · concept Noctis</p>
+    </div>
   </section>
   <section class="wide-image"><Image src={rose} width={1920} alt="Tavolo con una rosa in un ambiente raccolto" loading="lazy" /></section>
-  <section class="center-cta container"><p class="eyebrow">Ti aspettiamo, idealmente</p><h2>Il tuo posto nella notte.</h2><p>Esplora l'esperienza dimostrativa di prenotazione.</p><a class="button-primary" href="/prenota/">Scopri le prenotazioni <span aria-hidden="true">↗</span></a></section>
+  <section class="center-cta container"><p class="eyebrow">Ti aspettiamo, idealmente</p><h2>Il tuo posto nella notte.</h2><p>Esplora l'esperienza dimostrativa di prenotazione.</p><a class="button-primary" href="/prenota/">Scopri le prenotazioni</a></section>
+  <script>import "../scripts/image-fallback"; import "../scripts/owner-orbit";</script>
 </BaseLayout>

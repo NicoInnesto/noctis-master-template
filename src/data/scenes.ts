@@ -1,7 +1,8 @@
+import { imagery } from "./imagery";
 import diningRoom from "../assets/images/dining-room.jpg";
-import signatureDish from "../assets/images/signature-dish.jpg";
+import kitchen from "../assets/images/chef.jpg";
 import cocktail from "../assets/images/cocktail.jpg";
-import roseRoom from "../assets/images/rose-room.jpg";
+import dinner from "../assets/images/rose-room.jpg";
 
 export const scenes = [
   {
@@ -10,10 +11,12 @@ export const scenes = [
     eyebrow: "Bologna, dopo il tramonto",
     title: "La notte ha un altro sapore.",
     body: "Un rifugio urbano dove la cucina incontra l'alchimia e il tempo torna ad appartenerti.",
-    image: diningRoom,
-    imageAlt: "Sala raccolta con tavoli apparecchiati e luci calde",
+    imageId: imagery.entrance,
+    fallbackSrc: diningRoom.src,
+    imageAlt: "Ristorante contemporaneo illuminato nella notte",
     position: "center center",
     mobilePosition: "54% center",
+    cameraOrigin: "58% 48%",
     href: "/chi-siamo/",
     cta: "Entra nel mondo Noctis",
   },
@@ -23,10 +26,12 @@ export const scenes = [
     eyebrow: "La cucina",
     title: "La materia diventa emozione.",
     body: "Radici emiliane, sguardo contemporaneo. Ogni piatto lascia parlare l'ingrediente, poi sorprende.",
-    image: signatureDish,
-    imageAlt: "Piatto contemporaneo servito su ceramica scura",
-    position: "55% center",
+    imageId: imagery.kitchen,
+    fallbackSrc: kitchen.src,
+    imageAlt: "Chef al lavoro in una cucina poco illuminata",
+    position: "52% center",
     mobilePosition: "58% center",
+    cameraOrigin: "54% 54%",
     href: "/menu/",
     cta: "Scopri la cucina",
   },
@@ -36,10 +41,12 @@ export const scenes = [
     eyebrow: "Alchimia liquida",
     title: "Il rito continua nel bicchiere.",
     body: "Cocktail d'autore e selezioni da sorseggiare lentamente. Il finale perfetto non ha fretta.",
-    image: cocktail,
-    imageAlt: "Cocktail in coppa su un bancone illuminato",
-    position: "center 57%",
+    imageId: imagery.cocktail,
+    fallbackSrc: cocktail.src,
+    imageAlt: "Cocktail notturno con arancia sul bancone",
+    position: "54% 57%",
     mobilePosition: "center 55%",
+    cameraOrigin: "48% 52%",
     href: "/bar/",
     cta: "Esplora il bar",
   },
@@ -49,10 +56,12 @@ export const scenes = [
     eyebrow: "L'essenza di Noctis",
     title: "Prenditi tutto il tempo.",
     body: "Una luce, un tavolo, una conversazione che continua. La serata comincia quando decidi di fermarti.",
-    image: roseRoom,
-    imageAlt: "Tavolo raccolto con una rosa e luci soffuse",
+    imageId: imagery.dinner,
+    fallbackSrc: dinner.src,
+    imageAlt: "Cena intima a lume di candela",
     position: "center center",
     mobilePosition: "55% center",
+    cameraOrigin: "55% 50%",
     href: "/prenota/",
     cta: "Riserva la tua serata",
   },

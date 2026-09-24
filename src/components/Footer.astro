@@ -1,5 +1,6 @@
 ---
 import { navigation, site } from "../config/site";
+import SocialLinks from "./SocialLinks.astro";
 ---
 <footer class="site-footer">
   <div class="footer-top">
@@ -7,7 +8,7 @@ import { navigation, site } from "../config/site";
       <p class="eyebrow">La serata comincia qui</p>
       <p class="footer-statement">Ci vediamo<br /><em>dopo il tramonto.</em></p>
     </div>
-    <a class="circle-link" href="/prenota/" aria-label="Vai alle prenotazioni"><span aria-hidden="true">↗</span></a>
+    <a class="circle-link" href="/prenota/" aria-label="Vai alle prenotazioni">Prenota</a>
   </div>
   <div class="footer-bottom">
     <a class="footer-logo" href="/">NOCTIS<span>✦</span></a>
@@ -15,6 +16,6 @@ import { navigation, site } from "../config/site";
       {navigation.slice(1).map((item) => <a href={item.href}>{item.label}</a>)}
       <a href="/prenota/">Prenota</a>
     </nav>
-    <p>{site.isDemo ? "Concept dimostrativo · Ristorante immaginario" : site.displayAddress}<br />© {new Date().getFullYear()} {site.label} · <a href="/privacy/">Privacy</a></p>
+    <div class="footer-meta"><SocialLinks /><p>{site.isDemo ? "Concept dimostrativo · Ristorante immaginario" : site.displayAddress}<br />© {new Date().getFullYear()} {site.label} · <a href="/privacy/">Privacy</a></p></div>
   </div>
 </footer>

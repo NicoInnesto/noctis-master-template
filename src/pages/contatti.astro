@@ -1,13 +1,27 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHero from "../components/PageHero.astro";
+import SocialLinks from "../components/SocialLinks.astro";
 import image from "../assets/images/location.jpg";
 import { site } from "../config/site";
 ---
 <BaseLayout title="Contatti" description="Informazioni sul concept Noctis: ambientazione, orari dimostrativi e collegamenti per esplorare il sito.">
   <PageHero eyebrow="Restiamo in contatto" title="Ci vediamo di sera" intro="Tutte le informazioni dell'esperienza Noctis, in un luogo solo." image={image} imageAlt="Interno di ristorante con tavoli apparecchiati" position="center 55%" />
   <section class="contact-layout container">
-    <div><p class="eyebrow">Il luogo</p><h2>Nel cuore<br /><em>di Bologna.</em></h2><p>Noctis è ambientato a Bologna, ma questo è un ristorante fittizio. Indirizzo, telefono e canali di contatto di un cliente reale saranno inseriti nel template prima della pubblicazione.</p><a class="text-link" href="/prenota/">Scopri il percorso di prenotazione <span aria-hidden="true">↗</span></a></div>
+    <div><p class="eyebrow">Il luogo</p><h2>Nel cuore<br /><em>di Bologna.</em></h2><p>Noctis è ambientato a Bologna, ma questo è un ristorante fittizio. L'indirizzo qui sotto serve soltanto a mostrare come apparirà la pagina di un cliente reale.</p><a class="text-link" href="/prenota/">Scopri il percorso di prenotazione</a></div>
     <div class="contact-card"><p class="eyebrow">Orari dimostrativi</p><dl>{site.displayHours.map((entry) => <div><dt>{entry.day}</dt><dd>{entry.time}</dd></div>)}</dl><p class="contact-card-note">Gli orari descrivono il concept e non un locale aperto al pubblico.</p></div>
+  </section>
+  <section class="map-section container" aria-labelledby="map-title">
+    <div class="map-section-copy">
+      <p class="eyebrow">Ci trovi qui, nella storia</p>
+      <h2 id="map-title">Un luogo<br /><em>da immaginare.</em></h2>
+      <address>{site.displayAddress}</address>
+      <p>Indirizzo dimostrativo. La mappa è illustrativa e si apre su Google Maps soltanto quando la selezioni.</p>
+      <SocialLinks />
+    </div>
+    <a class="map-visual" href={site.mapHref} target="_blank" rel="noopener noreferrer" aria-label="Apri la ricerca dell'indirizzo dimostrativo su Google Maps in una nuova scheda">
+      <img src="/images/noctis-map.svg" width="1600" height="900" alt="Mappa illustrativa di Bologna con un segnaposto Noctis" loading="lazy" decoding="async" />
+      <span>Apri in Google Maps</span>
+    </a>
   </section>
 </BaseLayout>

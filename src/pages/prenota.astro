@@ -17,10 +17,10 @@ import image from "../assets/images/rose-room.jpg";
         <label>Orario <select name="time" required><option value="">Seleziona</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option></select></label>
         <label>Occasione <select name="occasion"><option value="">Facoltativo</option><option>Cena</option><option>Anniversario</option><option>Compleanno</option><option>Un'occasione speciale</option></select></label>
       </div>
-      <button class="button-primary booking-submit" type="submit">Mostra il riepilogo <span aria-hidden="true">↗</span></button>
+      <button class="button-primary booking-submit" type="submit">Mostra il riepilogo</button>
       <p class="form-disclaimer">Nessun dato viene salvato o inviato.</p>
       <div class="booking-result" data-booking-result role="status" hidden></div>
-    </form> : <div class="booking-form booking-provider"><p class="eyebrow">Prenotazioni</p><h3>Il tuo tavolo</h3><p>Segui il collegamento per richiedere una prenotazione.</p><a class="button-primary" href={site.reservationHref}>Richiedi un tavolo <span aria-hidden="true">↗</span></a></div>}
+    </form> : <div class="booking-form booking-provider"><p class="eyebrow">Prenotazioni</p><h3>Il tuo tavolo</h3><p>Segui il collegamento per richiedere una prenotazione.</p><a class="button-primary" href={site.reservationHref}>Richiedi un tavolo</a></div>}
   </section>
   <section class="hours-section container"><div><p class="eyebrow">Orari del concept</p><h2>Quando la notte<br /><em>ci trova.</em></h2></div><dl>{site.displayHours.map((entry) => <div><dt>{entry.day}</dt><dd>{entry.time}</dd></div>)}</dl></section>
   <script>import "../scripts/booking";</script>

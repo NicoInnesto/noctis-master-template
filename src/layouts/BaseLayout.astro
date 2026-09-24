@@ -39,6 +39,7 @@ const structuredData = !site.isDemo && site.business ? {
     {canonical && <link rel="canonical" href={canonical} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    {(pageClass === "home-page" || pageClass === "about-page") && <link rel="preconnect" href="https://images.unsplash.com" crossorigin />}
     <title>{title} | {site.label}</title>
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />

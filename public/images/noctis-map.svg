@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Mappa illustrativa del concept Noctis</title>
+  <desc id="desc">Pianta stilizzata di un quartiere immaginario di Bologna con un segnaposto Noctis.</desc>
+  <rect width="1600" height="900" fill="#e7e9e5"/>
+  <path d="M0 50 322 0h410l-139 244L90 388 0 343ZM1138 0h462v309l-261-39-220-152ZM0 678l338-181 304 217-68 186H0ZM1031 638l383-181 186 66v377H912Z" fill="#d9e4d8"/>
+  <g fill="#d9dedb" stroke="#c5ccc9" stroke-width="2">
+    <path d="m65 79 128-32 68 91-130 35zM340 36l171 27-44 112-152-32zM529 8l124 39-66 126-110-38zM825 50l113-9 72 100-109 40zM1030 54l177-13 43 124-143 19zM1332 60l132 32 29 104-140-17z"/>
+    <path d="m31 447 180-57 62 118-182 74zM370 332l153-60 97 114-149 83zM634 235l179-63 67 124-174 82zM944 223l150-49 104 116-161 72zM1245 259l164-22 79 114-177 38z"/>
+    <path d="m45 731 162-92 76 82-111 107zM342 565l164-65 101 106-162 76zM676 704l132-53 89 98-161 78zM1102 717l158-82 81 105-145 113zM1393 588l116-48 91 113-90 106z"/>
+  </g>
+  <g fill="none" stroke="#bfc9c9" stroke-width="96" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-80 315C291 272 390 205 694 403s544 28 986 57"/>
+    <path d="M175-70c75 253 207 425 367 578s250 263 362 480"/>
+    <path d="M1160-70c-43 234-191 361-126 536s226 300 273 498"/>
+  </g>
+  <g fill="none" stroke="#fffdfa" stroke-width="78" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-80 315C291 272 390 205 694 403s544 28 986 57"/>
+    <path d="M175-70c75 253 207 425 367 578s250 263 362 480"/>
+    <path d="M1160-70c-43 234-191 361-126 536s226 300 273 498"/>
+  </g>
+  <g fill="none" stroke="#fffdfa" stroke-width="36" stroke-linecap="round">
+    <path d="M-70 666 424 399M431-60l467 408M1458-55 1058 348M341 947l528-594M700 944l383-457M922 20l576 781"/>
+  </g>
+  <g fill="#596b6a" font-family="Arial,sans-serif" font-size="27" font-weight="700" letter-spacing="2">
+    <text x="107" y="289" transform="rotate(-16 107 289)">VIA DELLA SERA</text>
+    <text x="483" y="532" transform="rotate(31 483 532)">VIA DELLE OMBRE</text>
+    <text x="1056" y="440" transform="rotate(-7 1056 440)">VIA DELLA LUNA</text>
+    <text x="1245" y="716" transform="rotate(48 1245 716)">VIA DEL TEMPO</text>
+  </g>
+  <g transform="translate(829 393)">
+    <circle r="74" fill="#1c1512" opacity=".17"/>
+    <path d="M0-95c-51 0-92 40-92 91 0 68 92 171 92 171S92 64 92-4c0-51-41-91-92-91Z" fill="#8d322e" stroke="#fff6e7" stroke-width="8"/>
+    <circle cy="-10" r="32" fill="#fff6e7"/>
+    <circle cy="-10" r="14" fill="#b58d60"/>
+  </g>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <rect x="627" y="591" width="405" height="111" rx="5" fill="#1c1512"/>
+    <text x="829" y="640" fill="#e9c897" font-size="33" font-weight="700" letter-spacing="8">NOCTIS</text>
+    <text x="829" y="675" fill="#fff7eb" font-size="17" letter-spacing="3">VIA DELLE OMBRE 24</text>
+  </g>
+  <text x="74" y="840" fill="#607171" font-family="Arial,sans-serif" font-size="29" font-weight="700" letter-spacing="7">BOLOGNA · MAPPA ILLUSTRATIVA</text>
+</svg>
